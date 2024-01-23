@@ -1,0 +1,64 @@
+syntax = "proto3";
+package entity;
+
+//↓↓↓↓↓↓↓↓↓合约参数包装类↓↓↓↓↓↓↓↓↓
+//人员信息
+message MemberInfo{
+    string name = 1;//人员名称
+}
+//人员信息列表
+message MemberInfos{
+    repeated MemberInfo name = 1;//人员名称
+}
+
+//节点信息
+message NodeInfo {
+    string name = 1;        //节点名称
+    string cpu = 2;         //cpu数量
+    string memory = 3;      //内存大小
+    string disk = 4;        //磁盘大小
+    string bandwidth = 5;   //带宽
+    //... 待补充
+}
+//组织信息
+message OrgInfo{
+    string orgName = 1;//
+    string orgAddress = 2;//
+}
+//业务域合约信息
+message BizContractInfo{
+    string name = 1;//合约名称
+    string remark = 2;//备注
+    //... 待补充
+}
+//资源节点信息
+message ResourceNodeInfo{
+    string nodeName = 1;//
+    string orgName = 2;//
+    string orgAddress = 3;//
+    string dSName = 5;//存管域名称
+    string cpu = 6;         //cpu数量
+    string memory = 7;      //内存大小
+    string disk = 8;        //磁盘大小
+    string bandwidth = 9;   //带宽
+    //... 待补充
+}
+//数据存管域信息
+message DSDomainInfo{
+    string name = 1;//数据存管域名称
+    //... 待补充
+}
+//业务域信息
+message BizDomainInfo{
+    string name = 1;//业务域名称
+    //... 待补充
+}
+
+//业务系统信息
+message BizSystemInfo{
+    string sysAddress = 1;//业务系统地址
+    string sysName = 2;//业务系统名称
+    //... 待补充
+}
+
+//↑↑↑↑↑↑↑↑↑合约参数包装类↑↑↑↑↑↑↑↑↑

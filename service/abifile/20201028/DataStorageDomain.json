@@ -1,0 +1,450 @@
+[
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_domainId",
+        "type": "address"
+      }
+    ],
+    "name": "existsDomain",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_domainId",
+        "type": "address"
+      },
+      {
+        "name": "_pdomainId",
+        "type": "address"
+      },
+      {
+        "name": "_name",
+        "type": "bytes"
+      },
+      {
+        "name": "_members",
+        "type": "address[]"
+      },
+      {
+        "name": "_storage",
+        "type": "uint256"
+      },
+      {
+        "name": "_rule",
+        "type": "uint256"
+      },
+      {
+        "name": "_isEnableManage",
+        "type": "bool"
+      },
+      {
+        "name": "_isEnableDelFile",
+        "type": "bool"
+      }
+    ],
+    "name": "createDomain",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_domainId",
+        "type": "address"
+      },
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "memberAgree",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_domainId",
+        "type": "address"
+      },
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "configAgree",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_domainId",
+        "type": "address"
+      },
+      {
+        "name": "_configKey",
+        "type": "bytes32"
+      },
+      {
+        "name": "_configValue",
+        "type": "bytes"
+      }
+    ],
+    "name": "configApply",
+    "outputs": [
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      },
+      {
+        "name": "_isEnd",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_addr",
+        "type": "address"
+      }
+    ],
+    "name": "setBusinessDomain",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_domainId",
+        "type": "address"
+      },
+      {
+        "name": "_status",
+        "type": "uint256"
+      }
+    ],
+    "name": "setStatus",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_domainId",
+        "type": "address"
+      },
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "ruleAgree",
+    "outputs": [
+      {
+        "name": "_isEnd",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_domainId",
+        "type": "address"
+      },
+      {
+        "name": "_rule",
+        "type": "uint256"
+      }
+    ],
+    "name": "ruleApply",
+    "outputs": [
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      },
+      {
+        "name": "_isEnd",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_domainId",
+        "type": "address"
+      },
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "businessDomainAgree",
+    "outputs": [
+      {
+        "name": "_isEnd",
+        "type": "bool"
+      },
+      {
+        "name": "_bizId",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_domainId",
+        "type": "address"
+      },
+      {
+        "name": "_nodeAddress",
+        "type": "address"
+      },
+      {
+        "name": "_name",
+        "type": "bytes"
+      },
+      {
+        "name": "_url",
+        "type": "bytes"
+      },
+      {
+        "name": "_amount",
+        "type": "uint256"
+      },
+      {
+        "name": "_op",
+        "type": "uint256"
+      }
+    ],
+    "name": "dataStorageNodeApply",
+    "outputs": [
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      },
+      {
+        "name": "_isEnd",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_domainId",
+        "type": "address"
+      },
+      {
+        "name": "_name",
+        "type": "bytes"
+      },
+      {
+        "name": "_names",
+        "type": "bytes"
+      },
+      {
+        "name": "_members",
+        "type": "address[]"
+      },
+      {
+        "name": "_op",
+        "type": "uint256[]"
+      }
+    ],
+    "name": "businessDomainApply",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes32"
+      },
+      {
+        "name": "",
+        "type": "bool"
+      },
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_domainId",
+        "type": "address"
+      },
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "dataStorageNodeAgree",
+    "outputs": [
+      {
+        "name": "_isEnd",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_newManager",
+        "type": "address"
+      }
+    ],
+    "name": "setManager",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_domainId",
+        "type": "address"
+      },
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "disagree",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_domainId",
+        "type": "address"
+      },
+      {
+        "name": "_name",
+        "type": "bytes"
+      },
+      {
+        "name": "_member",
+        "type": "address"
+      },
+      {
+        "name": "_op",
+        "type": "uint256"
+      }
+    ],
+    "name": "memberApply",
+    "outputs": [
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      },
+      {
+        "name": "_isEnd",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "name": "_parent",
+        "type": "address"
+      },
+      {
+        "name": "_dataStorageTokenAddr",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  }
+]

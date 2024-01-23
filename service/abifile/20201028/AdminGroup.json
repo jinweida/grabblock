@@ -1,0 +1,549 @@
+[
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_member",
+        "type": "address"
+      }
+    ],
+    "name": "removeMember",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "memberAgree",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_orgAddress",
+        "type": "address"
+      },
+      {
+        "name": "_orgName",
+        "type": "bytes"
+      },
+      {
+        "name": "_nodeAddr",
+        "type": "address"
+      },
+      {
+        "name": "_info",
+        "type": "bytes"
+      },
+      {
+        "name": "_amount",
+        "type": "uint256"
+      },
+      {
+        "name": "_nodeType",
+        "type": "uint256"
+      },
+      {
+        "name": "_op",
+        "type": "uint256"
+      }
+    ],
+    "name": "chainNodeApply",
+    "outputs": [
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      },
+      {
+        "name": "_isEnd",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_dsId",
+        "type": "address"
+      },
+      {
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "storageLicenseApply",
+    "outputs": [
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      },
+      {
+        "name": "_isEnd",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_addr",
+        "type": "address"
+      }
+    ],
+    "name": "getMember",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "storageLicenseAgree",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "ruleAgree",
+    "outputs": [
+      {
+        "name": "_isEnd",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_addr",
+        "type": "address"
+      }
+    ],
+    "name": "setStorageDomain",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_name",
+        "type": "bytes"
+      },
+      {
+        "name": "_memberNames",
+        "type": "bytes"
+      },
+      {
+        "name": "_members",
+        "type": "address[]"
+      },
+      {
+        "name": "_amount",
+        "type": "uint256"
+      },
+      {
+        "name": "_rule",
+        "type": "uint256"
+      }
+    ],
+    "name": "dataStorageDomainApply",
+    "outputs": [
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      },
+      {
+        "name": "_isEnd",
+        "type": "bool"
+      },
+      {
+        "name": "_dsId",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_name",
+        "type": "bytes"
+      },
+      {
+        "name": "_member",
+        "type": "address"
+      },
+      {
+        "name": "_op",
+        "type": "uint256"
+      },
+      {
+        "name": "_subGroupAddress",
+        "type": "address"
+      }
+    ],
+    "name": "memberApply",
+    "outputs": [
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      },
+      {
+        "name": "_isEnd",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_key",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getConfig",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "performMemberApply",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "chainNodeAgree",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_configKey",
+        "type": "bytes32"
+      },
+      {
+        "name": "_configValue",
+        "type": "bytes"
+      }
+    ],
+    "name": "configApply",
+    "outputs": [
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      },
+      {
+        "name": "_isEnd",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [],
+    "name": "getParent",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [],
+    "name": "getMembers",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address[]"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [],
+    "name": "getSubs",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address[]"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "dataStorageDomainAgree",
+    "outputs": [
+      {
+        "name": "_isCreated",
+        "type": "bool"
+      },
+      {
+        "name": "_dsId",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_rule",
+        "type": "uint256"
+      }
+    ],
+    "name": "ruleApply",
+    "outputs": [
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      },
+      {
+        "name": "_isEnd",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_member",
+        "type": "address"
+      }
+    ],
+    "name": "addMember",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [],
+    "name": "subJoin",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "disagree",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "configAgree",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [],
+    "name": "isAllowJoin",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "name": "memberNames",
+        "type": "bytes[]"
+      },
+      {
+        "name": "members",
+        "type": "address[]"
+      },
+      {
+        "name": "_tokens",
+        "type": "address[]"
+      },
+      {
+        "name": "_parent",
+        "type": "address"
+      },
+      {
+        "name": "_rule",
+        "type": "uint256"
+      },
+      {
+        "name": "accountNodesName",
+        "type": "bytes[]"
+      },
+      {
+        "name": "accountNodes",
+        "type": "address[]"
+      },
+      {
+        "name": "orgInfos",
+        "type": "bytes[]"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  }
+]

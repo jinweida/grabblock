@@ -1,0 +1,38 @@
+syntax = "proto3";
+package entity;
+
+import "block.proto";
+import "transaction.proto";
+
+message RetBlockMessage {
+  int32 retCode = 1;
+  string retMsg = 2;
+  repeated BlockInfo block = 3;
+}
+
+message RetTransactionMessage {
+  int32 retCode = 1;
+  string retMsg = 2;
+  TransactionInfo transaction = 3;
+
+  TransactionStatus status = 4;// v2021版本
+  string blockHash = 5;
+}
+
+message RetAccountMessage {
+  int32 retCode = 1;
+  string retMsg = 2;
+  AccountType type = 3;
+  enum AccountType {
+    ACCOUNT = 0;
+    UNIONACCOUNT = 1;
+    CONTRACT = 2;
+  }
+  bytes 	address = 10;
+  int32 	nonce = 13;
+  string 	balance = 14;
+  int32	status = 5;//0：正常，-1：异常锁定黑名单
+  bytes 	storage_trie_root =6;//trie_sub_addressess(token,crypto,code,0001(union_subaddrs),0000(storage))
+  bytes	ext_data = 7; //扩展信息
+
+}

@@ -1,0 +1,29 @@
+syntax = "proto3";
+package entity;
+
+message ChainSummaryBlock {
+  string hash = 1;
+  int64 height = 2;
+  int32 txSize = 3;
+  string time = 4;
+  string miner = 5;
+}
+message RetChainSummaryMessage {
+  ChainSummaryBlock last = 1;
+  ChainSummaryBlock prev = 2;
+  int32 blockInterval = 3;
+  int32 txMessageQueueSize = 4;
+  int32 txConfirmQueueSize = 5;
+  double receiveTps = 6;
+  double maxReceiveTps = 7;
+  double processTps = 8;
+  double maxProcessTps = 9;
+  int64 totalCreateTx = 10;
+  int64 totalSyncTx = 11;
+  int64 totalReceiveTx = 12;
+  int64 totalProcessTx = 13;
+  int32 averageTxConfirmInterval = 14;
+  int32 maxTxConfirmInterval = 15;
+  string coinBase = 16;
+  int32 averageTxSize = 17;
+}

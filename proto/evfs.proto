@@ -1,0 +1,341 @@
+syntax = "proto3";
+import "filestore.proto";
+
+
+package entity;
+
+
+enum ActionModule{
+	EVA = 0; // evfs相关
+};
+
+enum ActionCMD {
+	FUN = 0;//调用合约函数
+	QUE = 1;//查询接口
+	
+	//文件操作
+	UPL = 2; // evfs上传文件块 req=PutFileSegmentMessage  resp=RetPutFileSegmentMessage
+	DNL = 3; // evfs下载文件 req=GetFileSegmentMessage  resp=RetGetFileSegmentMessage
+	CHK = 4; // evfs验证是否授权 req=CheckFileAuthMessage  resp=RetCheckFileAuthMessage
+	GCK = 5; // evfs获取chainkey公钥 req=GetChainKeyMessage   resp=RetGetChainKeyMessage
+	GFI = 6; // evfs获取文件元信息 req=GetFileInfoMessage  resp= RetGetFileInfoMessage
+	FVL = 7; // 获取链上文件md5方法
+	
+	GED = 8; // 根据datahash读取数据
+	GEDH = 9; // 根据datahash和版本读取指定版本数据
+	
+	LDSN = 60;// 存管域的节点列表
+	GDS = 61; // 获取存管域信息
+	GBD = 62; // 获取业务域信息
+	VBS = 70; // 验证业务系统身份接口
+	VHC = 71; // 验证前置节点身份接口
+}
+
+message ReqEvfsDataInfo {
+	string dataHash = 1;
+	string versionHash = 2;
+	string from = 3;
+	string bizId = 4;
+	string sysId = 5;
+}
+
+message RespEvfsDataInfo {
+	int32 retCode = 1;
+	string retMsg = 2;
+	bytes data = 3;
+	bytes version = 4;
+	int64 timestamp = 5;
+	bool del = 6;
+	bytes desKey = 7;
+	repeated bytes histories = 8;
+	repeated int64 timestamps = 9;
+}
+
+message ContractEVFS {
+	enum FunctionEVFS{
+		UNKNOW = 0;
+		CONSTRUCTOR = 1;
+		
+		FILEUPLOADAPPLY = 2;//文件上传申请
+		FILEAUTHORIZE = 3;//文件访问授权
+		FILEUPLOADCONFIRM = 4;//文件上传确认
+
+		FILEFREEZEOP = 5;//文件冻结解冻操作
+		FILEDELETEAPPLY = 6;//文件删除申请
+		FILEDELETECONFIRM = 7;//文件删除确认
+
+		DATASTORE = 8; // evfs数据存储
+		DATASTOREAUTHORIZE = 9;// evfs数据存储授权
+		DATASTOREDEL = 10;
+	}
+	FunctionEVFS  function = 1;//
+//	bytes	from = 2;
+//	repeated  bytes	tos=3;
+//	repeated  bytes	values = 4;
+	bytes   ext_datas = 2;//扩展信息
+
+	EVFSFileUploadApplyData fileUploadApplayData = 3;//
+	EVFSFileAuthoriseOPData fileAuthoriseOpData = 4;//
+	EVFSConfirmFileUploadData confirmFileUplaodData = 5;//
+
+	EVFSFileFreezeOpData fileFreezeOpData = 6;//文件冻结操作数据
+	EVFSFileDeleteApplyData fileDeleteApplyData = 7;//文件删除申请
+	EVFSFileDeleteConfirmData fileDeleteConfirmData = 8;//文件删除审核
+	
+	EVFSDataStorageData dataStorage = 9;
+	EVFSDataAuthoriseOPData dataAuthoriseOpData = 10;//数据授权
+	EVFSDataDelData dataDelData = 11;
+}
+
+message ReqGetBizDomainInfo {
+	string bizId = 1;
+}
+
+message RespGetBizDomainInfo {
+	int32 retCode = 1;
+	string retMsg = 2;
+	string bizId = 3;
+	string dataStorageId = 4;
+    string name = 5;
+    int32 status = 6;
+}
+
+message ReqGetDataStorageDomainInfo {
+	string bizId = 1;
+}
+message RespGetDataStorageDomainInfo {
+	int32 retCode = 1;
+	string retMsg = 2;
+	string dataStorageId = 3;
+    string name = 4;
+    int32 status = 5;
+}
+
+message ReqGetAvailableStorageNode {
+	string dataStorageDomainId = 1;
+}
+
+message RespGetAvailableStorageNode {
+	int32 retCode = 1;
+	string retMsg = 2;
+	repeated string nodeUrl = 3;
+}
+
+message ReqValidateBizSystemMessage {
+	string bizDomainId = 1;
+	string bizSystemId = 2;
+}
+
+message RespValidateBizSystem {
+	int32 retCode = 1;
+	string retMsg = 2;
+	string bizSystemName = 3;
+	int32 bizSystemStatus = 4;
+}
+
+message ReqValidateHttpClientMessage {
+	string clientId = 1;
+}
+
+message RespValidateHttpClient {
+	int32 retCode = 1;
+	string retMsg = 2;
+	string clientName = 3;
+	int32 clientStatus = 4;
+	string timestamp = 5;
+}
+
+message RetSessionFilterMessage{
+	int32 retCode = 1;
+	string retMsg = 2;
+}
+
+message ReqCallContract{
+	ContractEVFS data = 1;
+}
+
+message RespCallContract{
+	bytes datas = 1;
+	int32 ret_code = 2;
+	string	ret_message = 3;
+}
+
+message EVFSDataStorageData {
+	bytes data = 1;        //数据大小
+	bytes dataOwner = 2;   //数据所有者
+	bytes relDataHash = 3; //数据hash（有值修改、无值新增）
+	bool del = 4;          //是否删除--忽略
+	bytes desKey = 5;
+	string CKVersion = 6;
+	string bizId = 7;       //业务域ID
+}
+
+message EVFSDataDelData {
+	bytes dataHash = 1;
+}
+
+message EVFSFileUploadApplyData {
+	bytes fileInfo = 1;//文件非加密部分
+	bytes encFileInfo = 2;//使用randomKey des加密的fileInfo信息
+	bytes desKey = 3;//chainkey加密的randomKey，hexStringBytes
+	string CKVersion = 4;//chainkey 的version
+	bytes clientAddr = 5;//发起上传的前置节点地址
+	bytes fileOwner = 6;//文件所有者
+	bytes fileHash = 7;//文件唯一ID
+	repeated bytes authAddrs = 8;//授权人地址
+}
+
+    message FileInfoData {
+		int64  	fileSize = 1;
+		int32	repeatCount = 2;//备份个数
+		int32 	sliceCount = 3;//分片数量
+		string	bizDomainId = 4;
+		string	sysId = 5;
+		string  fileType = 6; // 文件类型 doc jpg等
+	}
+	message FileInfoEncData {
+		// int32  	fileSize = 1;	//文件大小
+		string 	filename = 2;//文件名
+		string 	fileDesc = 3;//文件描述
+		// string	domain = 4;//文件所属域
+		// string	symbol721c = 5;// 721token的名称
+		// int64	totalVolumeCount = 8;//该文件一共有多少个721V
+		int64	storeDeadLine = 9;//存储时间限制
+		int64	onChainDeadLine=10;//上链时间限制
+		string	fileSign = 11;//文件内容MD5
+		bytes   exData = 12;//附加信息
+//		repeated bytes nodeUrls = 13;//存储节点列表
+		bool    compress = 14;//是否开启压缩
+	}
+
+message EVFSFileAuthoriseOPData {
+	bytes fileHash = 1;//
+	repeated bytes addAddrs = 2;//添加授权地址列表
+	repeated bytes removeAddrs = 3;//移除授权地址列表
+}
+
+message EVFSDataAuthoriseOPData {
+	bytes dataHash = 1;//
+	repeated bytes addAddrs = 2;//添加授权地址列表
+	repeated bytes removeAddrs = 3;//移除授权地址列表
+}
+
+message EVFSConfirmFileUploadData{
+	bytes encFileInfo = 1;//使用randomKey des加密的fileInfo信息
+	bytes fileHash = 2;//文件hash
+	bytes versionHash = 3;
+}
+
+message EVFSFileFreezeOpData{
+	bytes fileHash = 1;//文件hash
+	int32 type = 2;//操作，1冻结，2解冻
+}
+message EVFSFileDeleteApplyData{
+	bytes fileHash = 1;//文件hash
+	repeated bytes addrs = 2;//审核人列表
+}
+message EVFSFileDeleteConfirmData{
+	bytes fileHash = 1;//文件hash
+	int32 type = 2;//操作，1同意删除；2拒绝删除
+}
+
+//evfs
+message PutFileSegmentMessage {
+	string 	txReqHash = 1;//请求的hash
+	bytes   contents = 2;//该文件块的部分内容
+	int32   skip = 3;//跳过的字节数
+	int32	limit = 4;//length(contents+sign)
+	bool	compress = 5;//是否开启压缩
+	bool	fromClient = 6;//是否是客户端提交
+	bool	chainForward = 7;//是否由服务端分发副本
+	string  sign = 8;//txReqHash私钥签名
+	string	segmentUuid = 9;
+	string  fileStoreName = 10;//分片存储文件名称
+	string	nodesCoAddress = 11;//在哪些节点
+	repeated StoreNodeInfo storeNodeInfo = 12;//分片存储信息
+	string CKVersion = 13;//chainkey版本
+}
+
+message GetFileMD5 {
+	string fileHash = 1;
+	string versionHash = 2;
+}
+
+message RetGetFileMD5 {
+	int32 retCode = 1;
+	string retMsg = 2;
+	string md5 = 3;
+}
+
+message RetPutFileSegmentMessage {
+	int32 retCode = 1;
+	string retMsg = 2;
+}
+
+message GetFileSegmentMessage {
+	string 	fileHash = 1;//请求上传的hash
+	string  address = 2;
+	string  bizId = 3;
+	string  sysId = 4;
+	string  timestamp = 5;//时间戳
+	string  sign = 6;//txEvfsHash+timestamp的私钥签名
+	string  fileStoreName = 7;//文件块id
+}
+
+message RetGetFileSegmentMessage {
+	int32 retCode = 1;
+	string retMsg = 2;
+	bytes	data = 3;//文件内容
+
+}
+
+message CheckFileAuthMessage {
+	string 	fileHash = 1;//请求上传的hash
+	string  sign = 2;//txEvfsHash的私钥签名
+}
+
+message RetCheckFileAuthMessage {
+	int32 retCode = 1;
+	string retMsg = 2;
+	bool valid = 3;//授权是否有效
+}
+
+message GetChainKeyMessage{
+	string version = 1;//版本
+}
+
+message RetGetChainKeyMessage{
+	int32 retCode = 1;
+	string retMsg = 2;
+	string	chainKey = 3;//文件内容
+	string CKVersion = 4;//chainkey 版本
+}
+
+message GetFileInfoMessage{
+	string 	fileHash = 1;//请求上传的hash
+	string versionHash = 2;
+	string  address = 3; // 用户
+}
+message RetGetFileInfoMessage {
+	int32 retCode = 1;
+	string retMsg = 2;
+	string fileInfoHex = 3;//文件元信息，deskey加密的hexString
+	string desKeyHex = 4;//用户公钥加密的deskey，hexString
+	repeated string	authAddrs = 5;//授权的用户地址，包含上传者
+	string versionHash = 6;
+	int64 createdAt = 7;
+	repeated string versionHistories = 8;
+	repeated int64 timestamps = 9;
+}
+
+message RetAccountStorageMessage {
+	int32 retCode = 1;
+	string retMsg = 2;
+	repeated AccountStorageItem items = 3;
+}
+
+message AccountStorageItem {
+	string key = 1;
+	string value = 2;
+	repeated AccountStorageItem subItems = 3;
+}

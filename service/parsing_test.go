@@ -1,0 +1,71 @@
+package service
+
+var trans1 = `{
+  "retCode": 1,
+  "transaction": {
+    "hash": "0xaaedf6e4312be21cfcb0ccacacc290c17f01218ee06db6f446a485120eb78079da",
+    "body": {
+      "nonce": 18,
+      "address": "0x3c1ea4aa4974d92e0eabd5d024772af3762720a0",
+      "outputs": [
+        {
+          "address": "0xdc9b01d0fa496f0fa6aaa4c5bf6ec838ffe57af6",
+          "amount": "0x00"
+        }
+      ],
+      "fee_hi": 0,
+      "fee_low": 0,
+      "inner_codetype": 4,
+      "code_data": "0x88d0154a000000000000000000000000419fc58897403db744ebbdb9c279d52889193dca00000000000000000000000000000000000000000000000000000000000000a000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000160000000000000000000000000000000000000000000000000000009184e72a000000000000000000000000000000000000000000000000000000000000000003e3078306130646534626338316534623839616535393038646537613762303331313230646534626338316534623839616537626339366535386662373332000000000000000000000000000000000000000000000000000000000000000000343078306131376535383561636538616638316535616439386537616561316535396639663331323065353930386365363834386600000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000003c1ea4aa4974d92e0eabd5d024772af3762720a0",
+      "timestamp": 1594714795962
+    },
+    "signature": "0xbe2f1ac3db2fa6baeb5013490e3c9d5230700a6699d3e7442dc0dcf36b66b5c72cae8251aeda966aa251690ca65bd98521be21e4e2970cf3c301739d2bc5cb3d3c1ea4aa4974d92e0eabd5d024772af3762720a0255b48868c611ebff5e5058fb001bb81d1d43ddf474eac468c6ed203927093ce70d3a76d3ea4e649f4f278176373dcf7e5205b44b2ae59c8141a6c79ca883f5a",
+    "status": {
+      "status": "0x01",
+      "result": "0xb3fefaae7c12c86547c55a71104816e40b67d1dd1fa9bb0f4613e49dfa20431e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "height": 95,
+      "timestamp": 1594714798239
+    },
+    "node": {
+      "address": "0x533a5a084cd587c86c20a0ddfb28f9ad018f341a"
+    },
+    "accepttimestamp": 1594714795994
+  }
+}`
+
+//func TestNewParsing(t *testing.T) {
+//
+//}
+//func TestParsing_Decode(t *testing.T) {
+//flag.Parse()
+//
+//err := conf.ParseConf("../config.json")
+//if err != nil {
+//	if os.IsNotExist(err) {
+//		t.Error("please config config.json")
+//		os.Exit(0)
+//	}
+//	t.Error(err)
+//}
+//models.Setup()
+//transaction := &entity.RetTransactionMessage{}
+//
+//if err := json.Unmarshal([]byte(trans1), &transaction); err != nil {
+//	t.Error(err)
+//}
+//par := NewParsing()
+//par.Decode(transaction.Transaction)
+//}
+
+//func TestParsing(t *testing.T) {
+//	codedata := "08031a143c1ea4aa4974d92e0eabd5d024772af3762720a022088ac7230489e80000"
+//	//r := Parsing(codedata)
+//	v, _ := hex.DecodeString(codedata)
+//	rc20 := &entity.ContractRC20{}
+//	proto.Unmarshal(v, rc20)
+//
+//	for _, m := range rc20.Values {
+//		//fmt.Println(hex.EncodeToString(m))
+//		fmt.Println(tools.HexToBigInt(hex.EncodeToString(m)))
+//	}
+//}

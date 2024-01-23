@@ -1,0 +1,509 @@
+[
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_domainId",
+        "type": "address"
+      },
+      {
+        "name": "_member",
+        "type": "address"
+      },
+      {
+        "name": "_op",
+        "type": "uint256"
+      }
+    ],
+    "name": "memberApply",
+    "outputs": [
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      },
+      {
+        "name": "_isEnd",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_domainId",
+        "type": "address"
+      },
+      {
+        "name": "_code",
+        "type": "bytes"
+      },
+      {
+        "name": "_info",
+        "type": "bytes"
+      }
+    ],
+    "name": "createContractApply",
+    "outputs": [
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      },
+      {
+        "name": "_isEnd",
+        "type": "bool"
+      },
+      {
+        "name": "_contractAddress",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_domainId",
+        "type": "address"
+      }
+    ],
+    "name": "existsDomain",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_domainId",
+        "type": "address"
+      },
+      {
+        "name": "_bizSystem",
+        "type": "address"
+      },
+      {
+        "name": "_data",
+        "type": "bytes"
+      },
+      {
+        "name": "_refId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "setDataStorage",
+    "outputs": [
+      {
+        "name": "_dataId",
+        "type": "bytes32"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_domainId",
+        "type": "address"
+      },
+      {
+        "name": "_pdomainId",
+        "type": "address"
+      },
+      {
+        "name": "_name",
+        "type": "bytes"
+      },
+      {
+        "name": "_members",
+        "type": "address[]"
+      },
+      {
+        "name": "_storage",
+        "type": "uint256"
+      },
+      {
+        "name": "_rule",
+        "type": "uint256"
+      }
+    ],
+    "name": "createDomain",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_domainId",
+        "type": "address"
+      },
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "memberAgree",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_domainId",
+        "type": "address"
+      },
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "configAgree",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_domainId",
+        "type": "address"
+      },
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "contractEnableAgree",
+    "outputs": [
+      {
+        "name": "_isEnd",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_domainId",
+        "type": "address"
+      },
+      {
+        "name": "_configKey",
+        "type": "bytes32"
+      },
+      {
+        "name": "_configValue",
+        "type": "bytes"
+      }
+    ],
+    "name": "configApply",
+    "outputs": [
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      },
+      {
+        "name": "_isEnd",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_domainId",
+        "type": "address"
+      },
+      {
+        "name": "_status",
+        "type": "uint256"
+      }
+    ],
+    "name": "setStatus",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_domainId",
+        "type": "address"
+      },
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "ruleAgree",
+    "outputs": [
+      {
+        "name": "_isEnd",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_domainId",
+        "type": "address"
+      },
+      {
+        "name": "_rule",
+        "type": "uint256"
+      }
+    ],
+    "name": "ruleApply",
+    "outputs": [
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      },
+      {
+        "name": "_isEnd",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_domainId",
+        "type": "address"
+      },
+      {
+        "name": "_contractAddress",
+        "type": "address"
+      },
+      {
+        "name": "_op",
+        "type": "uint256"
+      }
+    ],
+    "name": "contractEnableApply",
+    "outputs": [
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      },
+      {
+        "name": "_isEnd",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_newManager",
+        "type": "address"
+      }
+    ],
+    "name": "setManager",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_domainId",
+        "type": "address"
+      },
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "bizSystemAgree",
+    "outputs": [
+      {
+        "name": "_isEnd",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_domainId",
+        "type": "address"
+      },
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "disagree",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_domainId",
+        "type": "address"
+      },
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "createContractAgree",
+    "outputs": [
+      {
+        "name": "_isEnd",
+        "type": "bool"
+      },
+      {
+        "name": "_contractAddress",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_orgAddress",
+        "type": "address"
+      },
+      {
+        "name": "_orgName",
+        "type": "bytes"
+      },
+      {
+        "name": "_domainId",
+        "type": "address"
+      },
+      {
+        "name": "_bizSystem",
+        "type": "address"
+      },
+      {
+        "name": "_name",
+        "type": "bytes"
+      },
+      {
+        "name": "_op",
+        "type": "uint256"
+      }
+    ],
+    "name": "bizSystemApply",
+    "outputs": [
+      {
+        "name": "_reqId",
+        "type": "bytes32"
+      },
+      {
+        "name": "_isEnd",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "name": "_parent",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "_func",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "_data",
+        "type": "address"
+      }
+    ],
+    "name": "contractEnableEvent",
+    "type": "event"
+  }
+]

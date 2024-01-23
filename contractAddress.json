@@ -1,0 +1,10 @@
+{
+  "mode":"release",
+  "name": "grabblock",
+  "contractAddress": {
+    "contractAdminAddress":"0xd5892afbf91a14d1bec8c83b8a90e47f18fdc48c",
+    "contractCommitteeAddress":"0xe9a2f7d78d01b79a7464babc326f1f1dc25954d3",
+    "contractDataStorageAddress":"0x494c8c58b02ef1afaa8256d74f3a79cc79416183",
+    "contractBussinessAddress":"0x59f6b45d366e97f06b280bce3edf5563908309b2"
+  }
+}

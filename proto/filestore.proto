@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+package entity;
+
+message FileSegment{
+	int32	index = 1;
+	int32	skip = 2;
+	int64	size = 3;
+	string	segmentUuid = 4;
+	string	segmentSecretKey = 5;
+	repeated StoreNodeInfo storeNodeInfo = 6;//分片存储信息
+	string	partSign  = 7;//签名数据
+	int64	volumeCount = 8;//该分片有多少721V可以挖
+	bool    compress = 9;//是否开启压缩
+}
+
+message FileInfo{
+	string 	from = 1;//从哪个地址来的
+	int64  	fileSize = 2;	//文件大小
+	string 	filename = 3;//文件名
+	string 	fileDesc = 4;//文件描述
+	string	domain = 5;//文件所属域
+	// string	symbol721c = 6;// 721token的名称
+	repeated FileSegment parts = 7;//
+	int32	repeatCount = 8;//备份个数
+	int32 	sliceCount = 9;//分片数量
+	// int64	totalVolumeCount = 10;//该文件一共有多少个721V
+	int64	storeDeadLine = 11;//存储时间限制
+	int64	onChainDeadLine=12;//上链时间限制
+	string	fileSign = 13;//文件内容MD5
+    bytes exData = 14;//附加信息
+}
+
+message StoreNodeInfo{
+	string  fileStoreName = 1;//文件存储名称
+	string	nodesCoAddress = 2;//在哪些节点
+	string	nodesUrl = 3;//在哪些节点
+}
+
+message FileStorageInfo{
+	repeated string authoriseAddrs = 2;//授权账户地址列表
+	bool freeze = 4;//冻结状态
+	string owner = 5;//文件上传者地址
+	bool isDel = 7;//文件是否被删除
+	repeated bytes delReviewer = 8;//文件删除审核人
+	map<string, string> agreeRecord = 9;//同意删除记录 key:address;value:txHash
+	map<string, string> refuseRecord = 10;//拒绝删除记录 key:address;value:txHash
+	string	domain = 11;
+	bytes lastVersionHash = 12;
+	int64 lastUpdatedAt = 13;
+}
+
+message FileStorageItem {
+	bytes encFileInfo = 1;//加密的文件信息
+	int64 updatedAt = 2;
+	bytes desKey = 3;//des加密密钥。chainkey公钥加密密文形式存储
+	string CKVersion = 6;//chainkey version
+	bytes prevVersionHash = 7;
+}
+
+message DataStorageInfo {
+	repeated bytes authoriseAddrs = 2;//授权账户地址列表
+	bytes owner = 5;//文件上传者地址
+	bool isDel = 7;//文件是否被删除
+	string domain = 11;
+	bytes lastVersionHash = 12;
+	int64 lastUpdatedAt = 13;
+}
+
+message DataStorageItem {
+	bytes encData = 1;
+	int64 updatedAt = 2;
+	bytes prevVersionHash = 3;
+	bytes desKey = 4;
+	string CKVersion = 5;
+}
+
+message FileTrunk{
+	repeated bytes fileIdx = 1;//文件索引
+}
